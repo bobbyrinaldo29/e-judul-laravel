@@ -49,12 +49,10 @@
                                                     </td>
                                                 @endif
                                                 <td>
-                                                    @foreach ($list as $item)
                                                         <button type="button"
                                                             onclick="location.href='{{ route('edit-pengaju', $item->id) }}'"
                                                             class="btn mr-1 mb-1 btn-primary btn-sm">Edit</button>
-                                                    @endforeach
-                                                </td>
+                                                    </td>
                                             </tr>
                                         @endforeach
                                     </tbody>

@@ -27,10 +27,10 @@
                                         <img src="{{ asset('templates') }}/app-assets/images/pages/rocket.png" class="img-responsive block width-150 mx-auto" width="150" alt="bg-img">
                                         &nbsp;
                                         <p class="text-center">
-                                            Selamat Pengajuanmu akan diproses oleh kepala program studi, harap tunggu yaa.. kami akan mengirimkan pemberitahuan melalui email.
+                                            Selamat, Pengajuanmu akan diproses oleh kepala program studi, harap tunggu yaa.. kami akan mengirimkan pemberitahuan melalui email.
                                         </p>
                                         <div class="divider"><button class="btn btn-primary w-100" onclick="location.href='/'">Kembali ke halaman awal</button></div>
-                                        <button class="btn btn-success w-100" onclick="location.href='{{ route('generate-pdf') }}'">Print Bukti Pengajuan</button>
+                                        <!--<button class="btn btn-success w-100" onclick="location.href='{{ route('generate-pdf') }}'">Print Bukti Pengajuan</button>-->
                                     </div>
                                 </div>
                             </div>

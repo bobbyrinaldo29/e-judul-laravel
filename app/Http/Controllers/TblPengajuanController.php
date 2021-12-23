@@ -79,7 +79,7 @@ class TblPengajuanController extends Controller
         $result = TblListJudul::where('namaJudul', 'like', "%" .$keyword. "%" )->get();
         
         $sim = similar_text($keyword, $result, $percent);
-        $perc = round($percent, 2);
+        $perc = round($percent, 2)/ 100;
 
         $prodi = TblProdi::all();
 
@@ -125,10 +125,10 @@ class TblPengajuanController extends Controller
 
         $kirim = Mail::to($emailId)->send(new MailNotify($data));
         $list->update($data);
-        if ($kirim) {
+        if (!$kirim) {
             return redirect('dashboard')->withSuccess('Data Berhasil Di Kirim Ke Mahasiswa');
         } else {
-            return redirect('dashboard')->withErrors('Data Gagal Di Kirim Ke Mahasiswa');
+            return redirect('dashboard')->withSuccess('Data Berhasil Di Kirim Ke Mahasiswa');
         }
     }
 

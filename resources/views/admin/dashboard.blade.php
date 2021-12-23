@@ -182,12 +182,14 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($pengaju as $item)
+                                        @if ($item -> status == '0')
                                             <tr>
                                                 <td>{{ $item->nim }}</td>
                                                 <td>{{ $item->nama }}</td>
                                                 <td>{{ $item->prodi }}</td>
                                                 <td>{{ $item->judul }}</td>
                                                 <td>{{ $item->pengajuan }}</td>
+                                                
                                                 @if ($item->status == '1')
                                                     <td>
                                                         <div class="badge badge-pill badge-success badge-md mr-1 mb-1">
@@ -204,13 +206,17 @@
                                                             Ditolak</div>
                                                     </td>
                                                 @endif
+
+                                                
                                                 <td>
                                                         <button type="button"
                                                             onclick="location.href='{{ route('edit-pengaju', $item->id) }}'"
                                                             class="btn mr-1 mb-1 btn-primary btn-sm">Edit</button>
                                                 </td>
                                             </tr>
-                                        @endforeach
+                                            @endif
+                                            @endforeach
+                                        
                                     </tbody>
                                 </table>
                             </div>
