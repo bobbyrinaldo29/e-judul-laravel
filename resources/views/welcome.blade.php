@@ -32,6 +32,6 @@
         </form>
     </div>
     <script src="{{ asset('templates') }}/js/extention/choices.js"></script>
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</body>
 
 </html>

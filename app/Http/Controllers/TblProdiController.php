@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProdiRequest;
 use App\Models\TblProdi;
 use Illuminate\Http\Request;
 use Validator;
@@ -24,33 +25,12 @@ class TblProdiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create(ProdiRequest $request)
     {
-        $rules = [
-            'prodi' => 'unique:tbl_prodis',
-        ];
+        $data = $request->validated();
+        TblProdi::create($data);
 
-        $message = [
-            'prodi.unique' => 'Nama Prodi Sudah Ada',
-        ];
-
-        $validator = Validator::make($request->all(), $rules, $message);
-
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput($request->all);
-        }
-
-        $data = new TblProdi;
-        $data->prodi = $request->prodi;
-        
-        $simpen = $data->save();
-
-        if ($simpen) {
-            return redirect('prodi');
-        } else {
-            Session::flash('errors', ['' => 'Input Data Gagal']);
-            return redirect('prodi');
-        }
+        return redirect('prodi');
     }
 
     /**

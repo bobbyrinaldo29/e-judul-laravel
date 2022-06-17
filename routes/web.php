@@ -22,6 +22,8 @@ use App\Http\Controllers\TblPengajuanController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('search', [TblPengajuanController::class, 'show'])->name('search');
+Route::post('search', [TblPengajuanController::class, 'show'])->name('search');
 
 // Get By Id
 Route::get('edit-tahun-ajaran/{id}', [ThnAjaranController::class, 'edit'])->name('edit-tahun-ajaran');
@@ -40,7 +42,6 @@ Route::get('landingPage', [TblPengajuanController::class, 'index'])->name('landi
 Route::get('list_judul', [TblListJudulController::class, 'index'])->name('list-judul');
 Route::get('add/list-judul', [TblListJudulController::class, 'show'])->name('add-list');
 Route::get('add/prodi', [TblProdiController::class, 'show'])->name('add-prodi');
-Route::get('search', [TblPengajuanController::class, 'show'])->name('search');
 
 Route::get('pengaju/diterima', [TblPengajuanController::class, 'diterima'])->name('pengaju-diterima');
 Route::get('pengaju/diproses', [TblPengajuanController::class, 'diproses'])->name('pengaju-diproses');
@@ -50,7 +51,6 @@ Route::get('pengaju/ditolak', [TblPengajuanController::class, 'ditolak'])->name(
 Route::post('dashboard/tahun-ajaran', [ThnAjaranController::class, 'store'])->name('tahun-ajaran');
 Route::post('dashboard', [CustomAuthController::class, 'dashboard'])->name('dashboard');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
-Route::post('search', [TblPengajuanController::class, 'show'])->name('search');
 Route::post('generate-pdf', [TblPengajuanController::class, 'generatePDF'])->name('generate-pdf');
 
 // Create

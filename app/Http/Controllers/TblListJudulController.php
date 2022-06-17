@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ListJudulRequest;
 use App\Models\ThnAjaran;
 use App\Models\TblListJudul;
 use Illuminate\Http\Request;
@@ -25,7 +26,7 @@ class TblListJudulController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create(ListJudulRequest $request)
     {
 
         $rules = [

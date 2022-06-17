@@ -10,7 +10,12 @@ class TblProdi extends Model
 {
     use HasFactory;
     
-    protected $filable = [
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var string[]
+     */
+    protected $fillable = [
         'prodi',
     ];
 

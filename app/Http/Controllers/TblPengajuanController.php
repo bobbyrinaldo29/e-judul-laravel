@@ -76,10 +76,10 @@ class TblPengajuanController extends Controller
     public function show(Request $request)
     {
         $keyword = $request->search;
-        $result = TblListJudul::where('namaJudul', 'like', "%" .$keyword. "%" )->get();
+        $result = TblListJudul::where('namaJudul', 'like', "%" .$keyword. "%" )->get("namaJudul");
         
         $sim = similar_text($keyword, $result, $percent);
-        $perc = round($percent, 2)/ 100;
+        $perc = round($percent, 2);
 
         $prodi = TblProdi::all();
 
